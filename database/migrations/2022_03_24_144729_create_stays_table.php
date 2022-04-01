@@ -21,6 +21,7 @@ class CreateStaysTable extends Migration
             $table->String('lng');
             $table->String('phone')->unique();
             $table->String('email');
+            $table->mediumText('image');
             $table->String('web');
             $table->timestamps();
         });

@@ -11,5 +11,5 @@ class stay extends Model
 
     protected $table = 'stays';
 
-    protected $fillable = ['name', 'address', 'lat', 'lng', 'phone', 'email', 'web'];
+    protected $fillable = ['name', 'address', 'lat', 'lng', 'phone','image', 'email', 'web'];
 }

@@ -23,7 +23,23 @@ class StayController extends Controller
             'phone' => 'required',
         ]);
 
-        $stay = stay::create($request->all());
+        $stay = new stay();
+        $stay->name = $request->get('name');
+        $stay->address = $request->get('address');
+        $stay->lat = $request->get('lat');
+        $stay->lng = $request->get('lng');
+        $stay->phone = $request->get('phone');
+        $stay->email = $request->get('email');
+        $stay->web = $request->get('web');
+        
+        $file = $request->file('image');
+        $extension = $file->getClientOriginExtension();
+        $filename = time().'.'.$extension;
+        $file->move('uploads', $filename);
+        $stay->image = $filename;
+
+        $stay->save();
+
         return \Response($stay);
     }
 
